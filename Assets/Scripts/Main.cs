@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
+    // sounds
+    public AudioSource audioSource;
+    public AudioClip sfxJump;
+    public AudioClip sfxdie;
+    public AudioSource bgmStart;
     // Start is called before the first frame update
     public GameObject idle;
     public GameObject jump;
@@ -28,7 +33,7 @@ public class Main : MonoBehaviour
     public bool morreu = false;
 
     //Barra
-    public Barra barraScript;
+    public TimeOver TimeOverScript;
 
     void Start()
     {
@@ -49,8 +54,13 @@ public class Main : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && !morreu)
         {
+
+
             if (!comecou)
+            {
                 comecou = true;
+                bgmStart.Play();
+            }
 
             if (Input.mousePosition.x > Screen.width / 2)
             {
@@ -74,20 +84,24 @@ public class Main : MonoBehaviour
     {
         jump.SetActive(true);
         idle.SetActive(false);
+
         player.transform.position = new Vector2(2.5f, player.transform.position.y);
         player.transform.localScale = new Vector2(-escalaJogadorHorizontal, player.transform.localScale.y);
         Invoke("volta", 0.25f);
         listObj[0].SendMessage("ActionDir");
+        playSfx(sfxJump);
 
     }
     void bEsq()
     {
         jump.SetActive(true);
         idle.SetActive(false);
+
         player.transform.position = new Vector2(-2.5f, player.transform.position.y);
         player.transform.localScale = new Vector2(escalaJogadorHorizontal, player.transform.localScale.y);
         Invoke("volta", 0.25f);
         listObj[0].SendMessage("ActionEsq");
+        playSfx(sfxJump);
     }
 
     void volta()
@@ -160,13 +174,14 @@ public class Main : MonoBehaviour
            // Debug.Log("PONTO");
             pontos += 1;
             txtPontos.text = "Score: " + pontos.ToString();
-            barraScript.MaisTempo();
+            TimeOverScript.MaisTempo();
         }
     }
     public void FimDeJogo()
     {
         comecou = false;
         morreu = true;
+        playSfx(sfxdie);
 
         idle.GetComponent<SpriteRenderer>().color = new Color(1f, 0.25f, 0.25f, 1.0f);
         jump.GetComponent<SpriteRenderer>().color = new Color(1f, 0.25f, 0.25f, 1.0f);
@@ -189,5 +204,10 @@ public class Main : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    void playSfx(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play(0);
+    }
 
 }
