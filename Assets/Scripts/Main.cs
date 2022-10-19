@@ -51,6 +51,26 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!morreu && comecou)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                bDir();
+                direcaoPlayer = true;
+                listObj.RemoveAt(0);
+                ReposBlocos();
+                Jogada();
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                bEsq();
+                direcaoPlayer = false;
+                listObj.RemoveAt(0);
+                ReposBlocos();
+                Jogada();
+            }
+
+        }
 
         if (Input.GetButtonDown("Fire1") && !morreu)
         {
@@ -114,7 +134,7 @@ public class Main : MonoBehaviour
     {
         GameObject newB;
 
-        if (Random.value > 0.5f || (listObj.Count < 2))
+        if (Random.value > 0.5f || (listObj.Count < 1))
         {
             newB = Instantiate(b1);
         }

@@ -57,10 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Main.cs" />
+    <Compile Include="Assets\Scripts\Ardade 2\Arrastar.cs" />
     <Compile Include="Assets\Scripts\AudioMixerController.cs" />
     <Compile Include="Assets\Scripts\TimeOver.cs" />
     <Compile Include="Assets\Scripts\Barra.cs" />
-    <Compile Include="Assets\Scripts\Action.cs" />
+    <Compile Include="Assets\Scripts\EnemyAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

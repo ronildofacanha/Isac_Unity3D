@@ -8,21 +8,24 @@ public class AudioMixerController : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public AudioSource audioSource;
-    float off = -80f;
-    float one = 0f;
+    float min = -80f;
+    float max = 0f;
     public Image barra;
     public Text textStyle;
+    public float n1 = -80;
+    public float n2 = -80;
+    public float n3 = -80;
+    public float n4 = -80;
 
-   
     // Start is called before the first frame update
     void Awake()
     {
-        audioMixer.SetFloat("lv1", off);
-        audioMixer.SetFloat("lv2", off);
-        audioMixer.SetFloat("lv3", off);
-        audioMixer.SetFloat("lv4", off);
-        audioMixer.SetFloat("lv5", off);
-        audioMixer.SetFloat("lv6", off);
+        audioMixer.SetFloat("lv1", n1);
+        audioMixer.SetFloat("lv2", min);
+        audioMixer.SetFloat("lv3", min);
+        audioMixer.SetFloat("lv4", n2);
+        audioMixer.SetFloat("lv5", n3);
+        audioMixer.SetFloat("lv6", n4);
         textStyle.text = "";
         //audioSource.Stop();
 
@@ -31,93 +34,55 @@ public class AudioMixerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audioMixer.SetFloat("lv1", Mathf.Lerp(n1, 0, barra.fillAmount));
+        audioMixer.SetFloat("lv4", Mathf.Lerp(n2, 0, barra.fillAmount));
+        audioMixer.SetFloat("lv5", Mathf.Lerp(n3, 0, barra.fillAmount));
+        audioMixer.SetFloat("lv6", Mathf.Lerp(n4, 0, barra.fillAmount));
 
-        //lv0
-        if (barra.fillAmount <= 0.4)
-        {
-        //D
-            textStyle.text = "D";
-            audioMixer.SetFloat("lv1", off); // 0.2 * 300
-            audioMixer.SetFloat("lv2", off);
-            audioMixer.SetFloat("lv3", off);
-            audioMixer.SetFloat("lv4", off);
-            audioMixer.SetFloat("lv5", off);
-            audioMixer.SetFloat("lv6", off);
-        }
-        //lv1
-        if (barra.fillAmount >= 0.4 && barra.fillAmount <= 0.54)
-        {
-            //C
-            textStyle.text = "C";
-            audioMixer.SetFloat("lv1", one);
-            audioMixer.SetFloat("lv2", off);
-            audioMixer.SetFloat("lv3", off);
-            audioMixer.SetFloat("lv4", off);
-            audioMixer.SetFloat("lv5", off);
-            audioMixer.SetFloat("lv6", off);
-        }
-        //lv2
-        if (barra.fillAmount >= 0.54 && barra.fillAmount <= 0.67)
-        {
-            //B
-            textStyle.text = "B";
-            audioMixer.SetFloat("lv1", off);
-            audioMixer.SetFloat("lv2", one);
-            audioMixer.SetFloat("lv3", off); // d3 
-            audioMixer.SetFloat("lv4", one);
-            audioMixer.SetFloat("lv5", off);
-            audioMixer.SetFloat("lv6", off);
-        }
-        //lv3
-        if (barra.fillAmount >= 0.67 && barra.fillAmount <= 0.76)
-        {
-            //A
-            textStyle.text = "A";
-            audioMixer.SetFloat("lv1", off);
-            audioMixer.SetFloat("lv2", one);
-            audioMixer.SetFloat("lv3", off); // d3
-            audioMixer.SetFloat("lv4", one);
-            audioMixer.SetFloat("lv5", off);
-            audioMixer.SetFloat("lv6", off);
-        }
-        //lv4
-        if (barra.fillAmount >= 0.76 && barra.fillAmount <= 0.86)
-        {
-            //S
-            textStyle.text = "S";
-            audioMixer.SetFloat("lv1", off);
-            audioMixer.SetFloat("lv2", one);
-            audioMixer.SetFloat("lv3", off); // d3
-            audioMixer.SetFloat("lv4", one);
-            audioMixer.SetFloat("lv5", one);
-            audioMixer.SetFloat("lv6", off);
+     
 
+            
+            //lv0
+            if (barra.fillAmount <= 0.4)
+            {
+            //D
+                textStyle.text = "D";
+            }
+            //lv1
+            if (barra.fillAmount >= 0.4 && barra.fillAmount <= 0.54)
+            {
+                //C
+                textStyle.text = "C";
+            }
+            //lv2
+            if (barra.fillAmount >= 0.54 && barra.fillAmount <= 0.67)
+            {
+                //B
+                textStyle.text = "B";
+            }
+            //lv3
+            if (barra.fillAmount >= 0.67 && barra.fillAmount <= 0.76)
+            {
+                //A
+                textStyle.text = "A";
+            }
+            //lv4
+            if (barra.fillAmount >= 0.76 && barra.fillAmount <= 0.86)
+            {
+                //S
+                textStyle.text = "S";
+            }
+            //lv5
+            if (barra.fillAmount >= 0.86 && barra.fillAmount <= 0.91)
+            {
+                //Ss
+                textStyle.text = "Ss";
+            }
+            //lv6
+            if (barra.fillAmount > 0.91)
+            {
+                //Sss
+                textStyle.text = "Sss";
+            }
         }
-        //lv5
-        if (barra.fillAmount >= 0.86 && barra.fillAmount <= 0.91)
-        {
-            //Ss
-            textStyle.text = "Ss";
-            audioMixer.SetFloat("lv1", off);
-            audioMixer.SetFloat("lv2", off);
-            audioMixer.SetFloat("lv3", one); // d3
-            audioMixer.SetFloat("lv4", one);
-            audioMixer.SetFloat("lv5", one);
-            audioMixer.SetFloat("lv6", off);
-
-        }
-        //lv6
-        if (barra.fillAmount > 0.91)
-        {
-            //Sss
-            textStyle.text = "Sss";
-            audioMixer.SetFloat("lv1", off);
-            audioMixer.SetFloat("lv2", off);
-            audioMixer.SetFloat("lv3", one);
-            audioMixer.SetFloat("lv4", one);
-            audioMixer.SetFloat("lv5", one);
-            audioMixer.SetFloat("lv6", one);
-
-        }
-    }
 }
