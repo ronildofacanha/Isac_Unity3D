@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class TimeOver : MonoBehaviour
@@ -33,8 +34,7 @@ public class TimeOver : MonoBehaviour
         }
         else if(barra.fillAmount < 1)
         {
-            barra.fillAmount += addTime * Time.deltaTime;
-
+            barra.fillAmount += (addTime - barra.fillAmount) * Time.deltaTime;
         }
     }
 }

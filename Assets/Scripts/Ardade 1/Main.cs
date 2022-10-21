@@ -221,7 +221,7 @@ public class Main : MonoBehaviour
     void RecarregaCena()
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void playSfx(AudioClip clip)

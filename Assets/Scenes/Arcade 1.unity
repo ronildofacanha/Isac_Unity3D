@@ -1346,7 +1346,7 @@ MonoBehaviour:
   barra: {fileID: 920375124}
   MainScript: {fileID: 519420030}
   reTime: 0.03
-  addTime: 0.6
+  addTime: 1.2
 --- !u!114 &920375124
 MonoBehaviour:
   m_ObjectHideFlags: 0
