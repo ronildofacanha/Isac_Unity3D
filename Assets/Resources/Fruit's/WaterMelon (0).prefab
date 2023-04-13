@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9145322159287667939}
   - component: {fileID: 3439465212462924388}
   - component: {fileID: 2977154818790765885}
-  - component: {fileID: -2594601439297998947}
   - component: {fileID: 7960327630256388577}
+  - component: {fileID: 4790270258430724939}
   m_Layer: 0
   m_Name: WaterMelon (0)
   m_TagString: Untagged
@@ -135,18 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-2594601439297998947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3612670421111528478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8364a69ae2a894b84d1a6f5d620aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &7960327630256388577
 Animator:
   serializedVersion: 5
@@ -167,3 +155,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &4790270258430724939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612670421111528478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7462209810044fd4fbae62ecd074b16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0

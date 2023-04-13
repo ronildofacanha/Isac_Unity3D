@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7377042198257259508}
   - component: {fileID: -1135574455447785983}
   - component: {fileID: -2910367671813054228}
-  - component: {fileID: -1310601790515157332}
   - component: {fileID: 897535454}
+  - component: {fileID: 6040180101358763372}
   m_Layer: 0
   m_Name: Orange (0)
   m_TagString: Untagged
@@ -135,18 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1310601790515157332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6129896450245821766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8364a69ae2a894b84d1a6f5d620aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &897535454
 Animator:
   serializedVersion: 5
@@ -167,3 +155,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6040180101358763372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129896450245821766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7462209810044fd4fbae62ecd074b16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0

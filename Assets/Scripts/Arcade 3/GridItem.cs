@@ -15,6 +15,7 @@ public class GridItem : MonoBehaviour
         get;
         private set;
     }
+    public int Id;
 
     public void OnItemPosChanged(int newX, int newY)
     {
