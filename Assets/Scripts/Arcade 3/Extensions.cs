@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public static class Extensions
 {
-    public static IEnumerator Move(this Transform t, Vector3 pos, float duration)
+    public static IEnumerator AninMove(this Transform t, Vector3 pos, float duration)
     {
         Vector3 dir = pos - t.position;
         float distance = dir.magnitude;
@@ -23,5 +23,23 @@ public static class Extensions
         }
 
         t.position = pos;
+    }
+
+    public static IEnumerator AninScale(this Transform t, Vector3 scale, float duration)
+    {
+        Vector3 direction = scale - t.localScale;
+        float size = direction.magnitude;
+        direction.Normalize();
+
+        float startTime = 0;
+
+        while (startTime < duration)
+        {
+            float remainingDistance = (size * Time.deltaTime) / duration;
+            t.localScale += direction * remainingDistance;
+            startTime += Time.deltaTime;
+            yield return null;
+        }
+        t.localScale = scale;
     }
 }
