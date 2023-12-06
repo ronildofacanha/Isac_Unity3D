@@ -30,7 +30,7 @@ public class ResetGame : MonoBehaviour
     void Reset()
     {
      //   SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-          SceneManager.LoadScene(0);
+          SceneManager.LoadScene(2);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
